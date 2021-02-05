@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/02/02 18:19:48.000.693,=C:\Users\darle\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 18:23:51.000.674,C:\Desafio - Tarefa\MenuPrincial.dfm=C:\Users\darle\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2021/02/02 18:23:51.000.674,C:\Desafio - Tarefa\MenuPrincial.pas=C:\Users\darle\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 18:24:21.000.946,C:\Desafio - Tarefa\ProvaDelphiApp.dproj=C:\Users\darle\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2021/02/02 18:40:11.000.470,=C:\Desafio - Tarefa\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 18:42:39.000.458,C:\Desafio - Tarefa\Unit1.dfm=C:\Desafio - Tarefa\ufTarefa2.dfm</Transaction>
+    <Transaction>2021/02/02 18:42:39.000.458,C:\Desafio - Tarefa\Unit1.pas=C:\Desafio - Tarefa\ufTarefa2.pas</Transaction>
+    <Transaction>2021/02/02 19:48:54.000.244,=C:\Desafio - Tarefa\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 19:57:16.000.990,C:\Desafio - Tarefa\Unit1.pas=C:\Desafio - Tarefa\ufProgresso.pas</Transaction>
+    <Transaction>2021/02/02 23:00:52.000.650,=C:\Desafio - Tarefa\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 23:01:02.000.469,C:\Desafio - Tarefa\Unit1.pas=C:\Desafio - Tarefa\ufTarefa1.pas</Transaction>
+    <Transaction>2021/02/02 23:01:02.000.469,C:\Desafio - Tarefa\Unit1.dfm=C:\Desafio - Tarefa\ufTarefa1.dfm</Transaction>
+    <Transaction>2021/02/02 23:01:44.000.005,=C:\Desafio - Tarefa\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 23:01:53.000.086,C:\Desafio - Tarefa\Unit1.pas=C:\Desafio - Tarefa\ufTarefa3.pas</Transaction>
+    <Transaction>2021/02/02 23:02:08.000.208,C:\Desafio - Tarefa\ufTarefa3.pas=</Transaction>
+    <Transaction>2021/02/02 23:02:20.000.469,=C:\Desafio - Tarefa\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 23:02:27.000.520,=C:\Desafio - Tarefa\Unit1.pas</Transaction>
+    <Transaction>2021/02/02 23:02:40.000.752,C:\Desafio - Tarefa\Unit1.dfm=C:\Desafio - Tarefa\ufTarefa3.dfm</Transaction>
+    <Transaction>2021/02/02 23:02:40.000.752,C:\Desafio - Tarefa\Unit1.pas=C:\Desafio - Tarefa\ufTarefa3.pas</Transaction>
+  </Transactions>
+</BorlandProject>

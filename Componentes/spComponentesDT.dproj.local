@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/02/05 17:07:07.000.659,=rtl.dcp</Transaction>
+    <Transaction>2021/02/05 17:07:15.000.210,C:\Users\darle\OneDrive\Documentos\Embarcadero\Studio\Projects\Package1.dproj=C:\Users\darle\OneDrive\Documentos\Embarcadero\Studio\Projects\spComponentesDT.dproj</Transaction>
+    <Transaction>2021/02/05 17:07:52.000.307,=C:\SoftPlan\Componentes\uspComponentesRegistro.pas</Transaction>
+    <Transaction>2021/02/05 17:08:01.000.649,C:\SoftPlan\Componentes\uspComponentesRegistro.pas=</Transaction>
+    <Transaction>2021/02/05 17:08:18.000.032,=C:\SoftPlan\Componentes\uspComponentesRegistro.pas</Transaction>
+    <Transaction>2021/02/05 17:08:42.000.076,C:\SoftPlan\Componentes\uspComponentesRegistro.pas=</Transaction>
+    <Transaction>2021/02/05 17:08:51.000.898,C:\Users\darle\OneDrive\Documentos\Embarcadero\Studio\Projects\spComponentesDT.dproj=C:\SoftPlan\Componentes\spComponentesDT.dproj</Transaction>
+    <Transaction>2021/02/05 17:09:27.000.172,=C:\SoftPlan\Componentes\uspComponentesRegistro.pas</Transaction>
+    <Transaction>2021/02/05 17:09:42.000.946,=FireDACCommonDriver.dcp</Transaction>
+    <Transaction>2021/02/05 17:09:42.000.904,=dbrtl.dcp</Transaction>
+    <Transaction>2021/02/05 17:09:42.000.973,=FireDACCommon.dcp</Transaction>
+    <Transaction>2021/02/05 17:09:42.000.925,=FireDAC.dcp</Transaction>
+    <Transaction>2021/02/05 17:12:15.000.375,=spComponentes.dcp</Transaction>
+    <Transaction>2021/02/05 18:21:20.092,=C:\SoftPlan\Classes\uspComponentesRegistro.pas</Transaction>
+    <Transaction>2021/02/05 18:22:28.307,=spComponentes.dcp</Transaction>
+    <Transaction>2021/02/05 18:24:57.034,=C:\SoftPlan\Classes\uspQuery.pas</Transaction>
+    <Transaction>2021/02/05 18:25:25.920,C:\SoftPlan\Classes\uspQuery.pas=</Transaction>
+  </Transactions>
+</BorlandProject>

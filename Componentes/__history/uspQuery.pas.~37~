@@ -1,0 +1,37 @@
+unit uspQuery;
+
+interface
+
+uses
+  System.SysUtils, System.Classes, Data.DB, FireDAC.Comp.DataSet,
+  FireDAC.Comp.Client;
+
+type
+  TspQuery = class(TFDQuery)
+  private
+  protected
+    { Protected declarations }
+  public
+    { Public declarations }
+    function GeraSQL: String;
+  published
+    { Published declarations }
+    constructor Create(AOwner: TComponent); override;
+  end;
+
+implementation
+
+{ TspQuery }
+
+constructor TspQuery.Create(AOwner: TComponent);
+begin
+  inherited;
+
+end;
+
+function TspQuery.GeraSQL: String;
+begin
+  Result := '';
+end;
+
+end.

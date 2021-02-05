@@ -1,0 +1,14 @@
+unit uspComponentesRegistro;
+
+interface
+
+procedure Register;
+
+implementation
+
+procedure Register;
+begin
+  RegisterComponents('Samples', [TspQuery]);
+end;
+
+end.
