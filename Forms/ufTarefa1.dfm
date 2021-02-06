@@ -17,7 +17,6 @@ object fTarefa1: TfTarefa1
   Position = poDesktopCenter
   Visible = True
   OnClose = FormClose
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object lblSQLGerado: TLabel
@@ -53,16 +52,18 @@ object fTarefa1: TfTarefa1
     Top = 32
     Width = 153
     Height = 121
-    Hint = 'Colunas'
+    Hint = 'Coluna'
     TabOrder = 0
+    OnKeyPress = moColunasKeyPress
   end
   object moTabelas: TMemo
     Left = 176
     Top = 32
     Width = 153
     Height = 121
-    Hint = 'Tabelas'
+    Hint = 'Tabela'
     TabOrder = 1
+    OnKeyPress = moColunasKeyPress
   end
   object moCondicoes: TMemo
     Left = 344
@@ -87,6 +88,7 @@ object fTarefa1: TfTarefa1
     Width = 579
     Height = 136
     Hint = 'SQLGerado'
+    ReadOnly = True
     TabOrder = 4
   end
   object spGeraSQL: TspQuery

@@ -25,7 +25,7 @@ type
     spGeraSQL: TspQuery;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnGeraSQLClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
+    procedure moColunasKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
 
@@ -60,24 +60,19 @@ begin
   Destroy;
 end;
 
-procedure TfTarefa1.FormCreate(Sender: TObject);
+procedure TfTarefa1.moColunasKeyPress(Sender: TObject; var Key: Char);
 begin
-  fTarefa1 := Self;
+  if not (CharInSet(Key,['A'..'Z','a'..'z','0'..'9',' ',#8,#13])) then
+    key := #0;
 end;
 
 procedure TfTarefa1.ValidaMemosPreenchidos;
-var
-  iIndex: Integer;
 begin
-  for iIndex := 0 to Pred(fTarefa1.ComponentCount) do
-  begin
-    if (fTarefa1.Components[iIndex] is TMemo)
-      and (TMemo(fTarefa1.Components[iIndex]).Hint <> 'SQLGerado') then
-    begin
-      if TMemo(fTarefa1.Components[iIndex]).Lines.Count = 0 then
-        raise Exception.Create(Format('Por favor, preencha as %s', [TMemo(fTarefa1.Components[iIndex]).Hint]));
-    end;
-  end;
+  if moColunas.Lines.Count = 0 then
+    raise Exception.Create('Por favor, preencha as Colunas');
+
+  if moTabelas.Lines.Count = 0 then
+    raise Exception.Create('Por favor, preencha uma única Tabela');
 end;
 
 procedure TfTarefa1.ValidarEstrutura(Memo: TMemo);

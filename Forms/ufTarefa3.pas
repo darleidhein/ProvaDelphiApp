@@ -48,7 +48,7 @@ implementation
 
 procedure TfTarefa3.btnTotalClick(Sender: TObject);
 begin
-  edtTotalDivisoes.Text := CurrToStr(ObterTotais(tpTotal));
+  edtTotal.Text := CurrToStr(ObterTotais(tpTotal));
 end;
 
 procedure TfTarefa3.btnTotalDivisoesClick(Sender: TObject);
@@ -65,6 +65,7 @@ begin
   FcdsValoresProjeto.CreateDataSet;
 
   FdsValoresProjeto := TDataSource.Create(nil);
+  FdsValoresProjeto.AutoEdit := False;
   FdsValoresProjeto.DataSet := FcdsValoresProjeto;
 
   dbgValoresProjeto.DataSource := FdsValoresProjeto;
@@ -99,25 +100,24 @@ end;
 
 function TfTarefa3.ObterTotais(oTipoTotal: TipoTotal): Currency;
 var
-  cValorTotal, cValorTotalAnt, cValorTotalDiv: Currency;
+  cValorTotal, cValorTotalAnt: Currency;
 begin
   try
     cValorTotal := 0;
     cValorTotalAnt := 0;
-    cValorTotalDiv := 0;
 
     FcdsValoresProjeto.DisableControls;
     FcdsValoresProjeto.First;
     while not FcdsValoresProjeto.Eof do
     begin
-      if oTipoTotal = tpTotal then
-        cValorTotal := cValorTotal + FcdsValoresProjeto.Fields[2].Value
-      else
-      begin
-        if cValorTotalAnt <> 0 then
-          cValorTotalDiv := cValorTotalDiv + FcdsValoresProjeto.Fields[2].Value / cValorTotalAnt;
+      case oTipoTotal of
+        tpTotal: cValorTotal := cValorTotal + FcdsValoresProjeto.Fields[2].AsCurrency;
+        tpTotalDiv: begin
+                      if cValorTotalAnt <> 0 then
+                        cValorTotal := cValorTotal + FcdsValoresProjeto.Fields[2].AsCurrency / cValorTotalAnt;
 
-        cValorTotalAnt := FcdsValoresProjeto.Fields[2].Value;
+                      cValorTotalAnt := FcdsValoresProjeto.Fields[2].AsCurrency;
+                    end;
       end;
 
       FcdsValoresProjeto.Next;
@@ -126,10 +126,7 @@ begin
     FcdsValoresProjeto.EnableControls;
   end;
 
-  if oTipoTotal = tpTotal then
-    Result := cValorTotal
-  else
-    Result := cValorTotalDiv;
+  Result := cValorTotal;
 end;
 
 procedure TfTarefa3.OrdernarDataSet;
@@ -143,7 +140,7 @@ var
 begin
   for iIndex := 1 to 10 do
   begin
-    FcdsValoresProjeto.Insert;
+    FcdsValoresProjeto.Append;
     FcdsValoresProjeto.FieldByName('IDPROJETO').AsInteger := iIndex;
     FcdsValoresProjeto.FieldByName('NOMEPROJETO').AsString := Format('Projeto %s', [IntToStr(iIndex)]);
     FcdsValoresProjeto.FieldByName('VALOR').AsCurrency := iIndex*10;

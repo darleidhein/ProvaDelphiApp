@@ -2,7 +2,7 @@ object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
   Caption = 'Menu principal'
-  ClientHeight = 418
+  ClientHeight = 440
   ClientWidth = 796
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -14,6 +14,7 @@ object frmPrincipal: TfrmPrincipal
   Menu = mmMenuPrincipal
   OldCreateOrder = False
   Position = poScreenCenter
+  PrintScale = poNone
   Visible = True
   OnCreate = FormCreate
   PixelsPerInch = 96
