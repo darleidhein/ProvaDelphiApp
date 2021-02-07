@@ -18,7 +18,6 @@ type
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnExecutarClick(Sender: TObject);
     procedure edtMiliSegThread1KeyPress(Sender: TObject; var Key: Char);
-    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
     FProgressoThread1: TProgressoThread;
@@ -26,13 +25,14 @@ type
 
     procedure ValidarCampos;
     procedure ValidarExecucaoThreads;
+    procedure ExecutarThreads;
+    procedure DestruirThreads;
   public
     { Public declarations }
   end;
 
 var
   fTarefa2: TfTarefa2;
-  teste: Boolean;
 
 implementation
 
@@ -42,7 +42,26 @@ procedure TfTarefa2.btnExecutarClick(Sender: TObject);
 begin
   ValidarCampos;
   ValidarExecucaoThreads;
+  ExecutarThreads;
+end;
 
+procedure TfTarefa2.DestruirThreads;
+begin
+  if Assigned(FProgressoThread1) then
+    FProgressoThread1.Terminate;
+
+  if Assigned(FProgressoThread2) then
+    FProgressoThread2.Terminate;
+end;
+
+procedure TfTarefa2.edtMiliSegThread1KeyPress(Sender: TObject; var Key: Char);
+begin
+  if not (CharInSet(Key,['0'..'9',#8])) then
+    key := #0;
+end;
+
+procedure TfTarefa2.ExecutarThreads;
+begin
   FProgressoThread1 := TProgressoThread.Create;
   FProgressoThread1.SetarPropriedades(StrToInt(edtMiliSegThread1.Text), pgbUm);
   try
@@ -60,26 +79,10 @@ begin
   end;
 end;
 
-procedure TfTarefa2.edtMiliSegThread1KeyPress(Sender: TObject; var Key: Char);
-begin
-  if not (CharInSet(Key,['0'..'9',#8])) then
-    key := #0;
-end;
-
 procedure TfTarefa2.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
-  if Assigned(FProgressoThread1) then
-    FProgressoThread1.Terminate;
-
-  if Assigned(FProgressoThread2) then
-    FProgressoThread2.Terminate;
-
+  DestruirThreads;
   Destroy;
-end;
-
-procedure TfTarefa2.FormCreate(Sender: TObject);
-begin
-  fTarefa2 := Self;
 end;
 
 procedure TfTarefa2.ValidarCampos;
@@ -87,13 +90,13 @@ begin
   if edtMiliSegThread1.Text = EmptyStr then
   begin
     edtMiliSegThread1.SetFocus;
-    raise Exception.Create('Informe um valor válido!');
+    raise Exception.Create('Informe um valor!');
   end;
 
   if edtMiliSegThread2.Text = EmptyStr then
   begin
     edtMiliSegThread2.SetFocus;
-    raise Exception.Create('Informe um valor válido!');
+    raise Exception.Create('Informe um valor!');
   end;
 end;
 

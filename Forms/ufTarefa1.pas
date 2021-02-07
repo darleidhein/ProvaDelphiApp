@@ -28,11 +28,11 @@ type
     procedure moColunasKeyPress(Sender: TObject; var Key: Char);
   private
     { Private declarations }
-
-    procedure ValidaMemosPreenchidos;
-    procedure ValidarEstrutura(Memo: TMemo);
   public
     { Public declarations }
+    procedure ValidaMemosPreenchidos;
+    procedure ValidarEstrutura(Memo: TMemo);
+    procedure GeraSQL;
   end;
 
 var
@@ -47,17 +47,21 @@ begin
   ValidaMemosPreenchidos;
   ValidarEstrutura(moTabelas);
   ValidarEstrutura(moColunas);
-
-  spGeraSQL.spColunas.Text := moColunas.Text;
-  spGeraSQL.spTabelas.Text := moTabelas.Text;
-  spGeraSQL.spCondicoes.Text := moCondicoes.Text;
-
-  moSQLGerado.Text := spGeraSQL.GeraSQL;
+  GeraSQL;
 end;
 
 procedure TfTarefa1.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   Destroy;
+end;
+
+procedure TfTarefa1.GeraSQL;
+begin
+  spGeraSQL.spColunas.Text := moColunas.Text;
+  spGeraSQL.spTabelas.Text := moTabelas.Text;
+  spGeraSQL.spCondicoes.Text := moCondicoes.Text;
+
+  moSQLGerado.Text := spGeraSQL.GeraSQL;
 end;
 
 procedure TfTarefa1.moColunasKeyPress(Sender: TObject; var Key: Char);

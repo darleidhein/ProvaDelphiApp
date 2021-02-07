@@ -21,7 +21,6 @@ type
     lblTotalDivisoes: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormCreate(Sender: TObject);
-    procedure FormDestroy(Sender: TObject);
     procedure btnTotalClick(Sender: TObject);
     procedure btnTotalDivisoesClick(Sender: TObject);
   private
@@ -91,11 +90,6 @@ begin
   CriarComponentes;
   PopularRegistros;
   OrdernarDataSet;
-end;
-
-procedure TfTarefa3.FormDestroy(Sender: TObject);
-begin
-  DestruirDataSets;
 end;
 
 function TfTarefa3.ObterTotais(oTipoTotal: TipoTotal): Currency;

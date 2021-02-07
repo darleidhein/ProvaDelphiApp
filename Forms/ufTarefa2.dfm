@@ -17,7 +17,6 @@ object fTarefa2: TfTarefa2
   Position = poDesktopCenter
   Visible = True
   OnClose = FormClose
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object lblThread1: TLabel

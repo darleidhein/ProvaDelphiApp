@@ -10,12 +10,12 @@ type
   TspQuery = class(TFDQuery)
   private
     { Private declarations }
-    FspCondicoes: TStrings;
-    FspColunas: TStrings;
-    FspTabelas: TStrings;
-    procedure SetCondicoesList(Value: TStrings);
-    procedure SetColunasList(Value: TStrings);
-    procedure SetTabelasList(Value: TStrings);
+    FspCondicoes: TStringList;
+    FspColunas: TStringList;
+    FspTabelas: TStringList;
+    procedure SetCondicoesList(Value: TStringList);
+    procedure SetColunasList(Value: TStringList);
+    procedure SetTabelasList(Value: TStringList);
   protected
     { Protected declarations }
   public
@@ -25,9 +25,9 @@ type
     destructor Destroy; override;
   published
     { Published declarations }
-    property spCondicoes: TStrings read FspCondicoes write SetCondicoesList;
-    property spColunas: TStrings read FspColunas write SetColunasList;
-    property spTabelas: TStrings read FspTabelas write SetTabelasList;
+    property spCondicoes: TStringList read FspCondicoes write SetCondicoesList;
+    property spColunas: TStringList read FspColunas write SetColunasList;
+    property spTabelas: TStringList read FspTabelas write SetTabelasList;
   end;
 
 procedure register;
@@ -66,24 +66,24 @@ begin
   spColunas.Delimiter := ',';
   spColunas.StrictDelimiter := True;
 
-  sGeraSQL := Format('SELECT %s ', [spColunas.DelimitedText]) + #13#10 +
-    Format('FROM %s ', [spTabelas.Text]) +
-    Format('WHERE %s ', [spCondicoes.Text]);
+  sGeraSQL := Format('SELECT %s', [spColunas.DelimitedText]) + #13#10 +
+    Format('FROM %s', [spTabelas.Text]) +
+    Format('WHERE %s', [spCondicoes.Text]);
 
   Result := sGeraSQL;
 end;
 
-procedure TspQuery.SetColunasList(Value: TStrings);
+procedure TspQuery.SetColunasList(Value: TStringList);
 begin
   FspColunas.Assign(Value);
 end;
 
-procedure TspQuery.SetCondicoesList(Value: TStrings);
+procedure TspQuery.SetCondicoesList(Value: TStringList);
 begin
   FspCondicoes.Assign(Value);
 end;
 
-procedure TspQuery.SetTabelasList(Value: TStrings);
+procedure TspQuery.SetTabelasList(Value: TStringList);
 begin
   FspTabelas.Assign(Value);
 end;
