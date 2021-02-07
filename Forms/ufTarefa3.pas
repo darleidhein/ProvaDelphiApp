@@ -136,9 +136,10 @@ end;
 
 procedure TfTarefa3.PopularRegistros;
 var
-  iIndex: Integer;
+  iIndex, iRandom: Integer;
 begin
-  for iIndex := 1 to 10 do
+  iRandom := Random(100);
+  for iIndex := iRandom to iRandom+10 do
   begin
     FcdsValoresProjeto.Append;
     FcdsValoresProjeto.FieldByName('IDPROJETO').AsInteger := iIndex;

@@ -65,6 +65,7 @@ begin
   FcdsValoresProjeto.CreateDataSet;
 
   FdsValoresProjeto := TDataSource.Create(nil);
+  FdsValoresProjeto.AutoEdit := False;
   FdsValoresProjeto.DataSet := FcdsValoresProjeto;
 
   dbgValoresProjeto.DataSource := FdsValoresProjeto;
@@ -109,9 +110,14 @@ begin
     FcdsValoresProjeto.First;
     while not FcdsValoresProjeto.Eof do
     begin
-      case TipoTotal of
-        tpTotal: cValorTotal := cValorTotal + FcdsValoresProjeto.Fields[2].Value;
-        tpTotalDiv: cValorTotal := cValorTotal + FcdsValoresProjeto.Fields[2].Value / cValorTotalAnt;
+      case oTipoTotal of
+        tpTotal: cValorTotal := cValorTotal + FcdsValoresProjeto.Fields[2].AsCurrency;
+        tpTotalDiv: begin
+                      if cValorTotalAnt <> 0 then
+                        cValorTotal := cValorTotal + FcdsValoresProjeto.Fields[2].AsCurrency / cValorTotalAnt;
+
+                      cValorTotalAnt := FcdsValoresProjeto.Fields[2].AsCurrency;
+                    end;
       end;
 
       FcdsValoresProjeto.Next;
@@ -132,9 +138,11 @@ procedure TfTarefa3.PopularRegistros;
 var
   iIndex: Integer;
 begin
-  for iIndex := 1 to 10 do
+  iIndex := Random(100);
+
+  for iIndex := 1 to iIndex+10 do
   begin
-    FcdsValoresProjeto.Insert;
+    FcdsValoresProjeto.Append;
     FcdsValoresProjeto.FieldByName('IDPROJETO').AsInteger := iIndex;
     FcdsValoresProjeto.FieldByName('NOMEPROJETO').AsString := Format('Projeto %s', [IntToStr(iIndex)]);
     FcdsValoresProjeto.FieldByName('VALOR').AsCurrency := iIndex*10;
