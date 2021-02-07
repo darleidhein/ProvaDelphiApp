@@ -48,6 +48,9 @@ begin
   FspCondicoes := TStringList.Create;
   FspColunas := TStringList.Create;
   FspTabelas := TStringList.Create;
+
+  spColunas.Delimiter := ',';
+  spColunas.StrictDelimiter := True;
 end;
 
 destructor TspQuery.Destroy;
@@ -63,12 +66,11 @@ function TspQuery.GeraSQL: String;
 var
   sGeraSQL: String;
 begin
-  spColunas.Delimiter := ',';
-  spColunas.StrictDelimiter := True;
-
   sGeraSQL := Format('SELECT %s', [spColunas.DelimitedText]) + #13#10 +
-    Format('FROM %s', [spTabelas.Text]) +
-    Format('WHERE %s', [spCondicoes.Text]);
+    Format('FROM %s', [spTabelas.Text]);
+
+  if spCondicoes.Count > 0 then
+    sGeraSQL := sGeraSQL + Format('WHERE %s', [spCondicoes.Text]);
 
   Result := sGeraSQL;
 end;
